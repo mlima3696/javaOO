@@ -1,7 +1,5 @@
 package cursojava;
 
-
-
 // Essa classe Disciplina servira para todos os objetos e inst�ncias de notas e materiais
 public class Disciplina {
 
