@@ -136,8 +136,8 @@ public class Aluno {
 			somaNotas += disciplina.getNota1();
 		}
 
-		return somaNotas;
-	}// Acessndo o objeto de outra classe
+		return somaNotas/disciplinas.size();
+	}// Acessando o objeto de outra classe
 
 	// Metodo que retorna true para Aprovado e false para Reprovado
 	public boolean getAlunoAprovado() {

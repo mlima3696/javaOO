@@ -31,10 +31,10 @@ public class PrimeiraClasseJava {
 		String DataM=JOptionPane.showInputDialog("Data da matricula do Aluno? ");
 		String NomeE=JOptionPane.showInputDialog("Nome da escola do Aluno?");*/
 		String SerieM=JOptionPane.showInputDialog("Serie que o Aluno esta matriculado?");
-		String disc1=JOptionPane.showInputDialog("Disciplina 1? ");
-		String N1=JOptionPane.showInputDialog("Nota1 do Aluno? ");
-		String disc2=JOptionPane.showInputDialog("Disciplina 2? ");
-		String N2=JOptionPane.showInputDialog("Nota2 do Aluno? ");
+		//String disc1=JOptionPane.showInputDialog("Disciplina 1? ");
+		//String N1=JOptionPane.showInputDialog("Nota1 do Aluno? ");
+		//String disc2=JOptionPane.showInputDialog("Disciplina 2? ");
+		//String N2=JOptionPane.showInputDialog("Nota2 do Aluno? ");
 		/*String disc3=JOptionPane.showInputDialog("Disciplina 3? ");
 		String N3=JOptionPane.showInputDialog("Nota3 do Aluno? ");
 		String disc4=JOptionPane.showInputDialog("Disciplina 4? ");
@@ -53,7 +53,7 @@ public class PrimeiraClasseJava {
 		aluno1.setNomeEscola(NomeE);
 		aluno1.setSerieMatriculado(SerieM);*/
 
-		for(int pos =1; pos<=2; pos++) {
+		for(int pos =1; pos<=4; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+" ? " );
 			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina "+pos+" ? ");
 			
@@ -63,8 +63,15 @@ public class PrimeiraClasseJava {
 			
 			aluno1.getDisciplinas().add(disciplina);
 		}
+		
+		int escolha = JOptionPane.showConfirmDialog(null, "Deseja excluir alguma disciplina? ");
+		if(escolha == 0) {
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina voce deseja excluir 1,2,3 ou 4? ");
+			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue()-1); // Passando de de String para int
+		}
 
 		System.out.println(aluno1.toString()); // Descricao do Objeto na memoria
+		System.out.println("Disciplinas = " +aluno1.getDisciplinas());
 		System.out.println("Media do Aluno = " + aluno1.getMediaNota());
 		System.out.println("Resultado = " + aluno1.getAlunoAprovado());
 		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());
