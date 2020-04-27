@@ -36,7 +36,7 @@ public class PrimeiraClasseJava {
 		//String disc2=JOptionPane.showInputDialog("Disciplina 2? ");
 		//String N2=JOptionPane.showInputDialog("Nota2 do Aluno? ");
 		/*String disc3=JOptionPane.showInputDialog("Disciplina 3? ");
-		String N3=JOptionPane.showInputDialog("Nota3 do Aluno? ");
+		String N3=JOptionPane.showInputDialog("Nota3 do Aluno? ");2
 		String disc4=JOptionPane.showInputDialog("Disciplina 4? ");
 		String N4=JOptionPane.showInputDialog("Nota4 do Aluno? ");*/
 

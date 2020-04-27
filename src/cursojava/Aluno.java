@@ -1,6 +1,6 @@
 package cursojava;
 
-//Est� � mossa classe/objeto que o Aluno
+//Esta e nossa classe/objeto que o Aluno
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,7 +136,7 @@ public class Aluno {
 			somaNotas += disciplina.getNota1();
 		}
 
-		return somaNotas/disciplinas.size();
+		return somaNotas/disciplinas.size(); // Conta a quantidade de discipplinas 
 	}// Acessando o objeto de outra classe
 
 	// Metodo que retorna true para Aprovado e false para Reprovado
@@ -154,10 +154,15 @@ public class Aluno {
 		double media = this.getMediaNota();
 		if(media >= 7) {
 			return "Aluno esta Aprovado";
-		}else {
-			return "Aluno nao esta Aprovado";
+		}else if(this.getMediaNota() >=3 && this.getMediaNota() <7) {
+			return "Aluno esta de Recuperação";
+		}else {	
+			return "Aluno esta Reprovado" ;
 		}
 	}
+	
+	
+	
 
 
 	@Override
