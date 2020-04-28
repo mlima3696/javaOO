@@ -136,7 +136,7 @@ public class Aluno {
 			somaNotas += disciplina.getNota1();
 		}
 
-		return somaNotas/disciplinas.size(); // Conta a quantidade de discipplinas 
+		return somaNotas/disciplinas.size();//Conta a quantidade de discipplinas (Retorna um inteiro que e o tamanho da lista
 	}// Acessando o objeto de outra classe
 
 	// Metodo que retorna true para Aprovado e false para Reprovado
