@@ -90,13 +90,14 @@ public class PrimeiraClasseJava {
 		
 		for (Aluno aluno : alunos) {
 			
-			System.out.println(aluno.toString()); // Descricao do Objeto na memoria
-			System.out.println("Disciplinas = " + aluno.getDisciplinas());
+			if(aluno.getNome().equalsIgnoreCase("lima")) {
+			System.out.println(aluno); // Descricao do Objeto na memoria
 			System.out.println("Media do Aluno = " + aluno.getMediaNota());
-			System.out.println("Resultado = " + aluno.getAlunoAprovado());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
 			System.out.println();
 			System.out.println("----------------------------------------------------------------------------------");
+			break;
+			}
 		}
 
 
