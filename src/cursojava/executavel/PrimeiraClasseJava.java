@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.Aluno;
 import cursojava.Disciplina;
+import cursojava.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
 
@@ -20,8 +21,12 @@ public class PrimeiraClasseJava {
 		// aluno1 � uma referencia para o objeto aluno
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 
-		for (int quant = 1; quant <= 2; quant++) {
+		for (int quant = 1; quant <= 5; quant++) {
 
 			String nome = JOptionPane.showInputDialog("Nome do aluno "+quant+" ? ");
 			String idade = JOptionPane.showInputDialog("Idade do aluno? ");
@@ -85,40 +90,34 @@ public class PrimeiraClasseJava {
 			}
 			
 			alunos.add(aluno1);
+		}
+		
+		for (Aluno aluno : alunos) {// Separei em listas
+			if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
+				alunosAprovados.add(aluno);
+			}else if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)){
+				alunosRecuperacao.add(aluno);
+			}else {
+				alunosReprovados.add(aluno);
+			}
 			
 		}
 		
-		for(int pos=0;pos<alunos.size();pos++) {
-			
-			Aluno aluno = alunos.get(pos);
-			
-			if (aluno.getNome().equalsIgnoreCase("lima")) {
-				
-				Aluno trocar = new Aluno();
-				trocar.setNome("Aluno foi trocado!");
-				
-				Disciplina disciplina = new Disciplina();
-				disciplina.setDisciplina1("PHP");
-				disciplina.setNota1(9);
-				
-				trocar.getDisciplinas().add(disciplina);
-				alunos.set(pos, trocar);
-				aluno=alunos.get(pos);
-				
-			}
-			
-			System.out.println("Aluno = " + aluno.getNome());
-			System.out.println("Media do Aluno = " + aluno.getMediaNota());
-			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
-			
-			for(int posd=0; posd < aluno.getDisciplinas().size();posd++) {
-				
-				Disciplina disc = aluno.getDisciplinas().get(posd);
-				System.out.println("Materia = " +disc.getDisciplina1() + " nota = " + disc.getNota1());
-				System.out.println("-----------------------------------------------------------------------------------");
-			}
-			
+		System.out.println("----------------------------Lista dos Aprovados------------------------------------------");
+		for (Aluno aluno : alunosAprovados) {
+			System.out.println("Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
+		}
 		
+		System.out.println();
+		System.out.println("----------------------------Lista  de Recuperação---------------------------------------");
+		for (Aluno aluno : alunosRecuperacao) {
+			System.out.println("Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
+		}
+		
+		System.out.println();
+		System.out.println("-----------------------------Alunos de Reprovados--------------------------------------- ");
+		for (Aluno aluno : alunosReprovados) {
+			System.out.println( "Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
 	
 		sc.close();
