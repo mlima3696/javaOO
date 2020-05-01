@@ -56,7 +56,7 @@ public class PrimeiraClasseJava {
 			 * aluno1.setSerieMatriculado(SerieM);
 			 */
 
-			for (int pos = 1; pos <= 4; pos++) {
+			for (int pos = 1; pos <= 1; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ? ");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + " ? ");
 
@@ -92,25 +92,35 @@ public class PrimeiraClasseJava {
 			
 			Aluno aluno = alunos.get(pos);
 			
+			if (aluno.getNome().equalsIgnoreCase("lima")) {
+				
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado!");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina1("PHP");
+				disciplina.setNota1(9);
+				
+				trocar.getDisciplinas().add(disciplina);
+				alunos.set(pos, trocar);
+				aluno=alunos.get(pos);
+				
+			}
+			
 			System.out.println("Aluno = " + aluno.getNome());
 			System.out.println("Media do Aluno = " + aluno.getMediaNota());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
-			System.out.println("-----------------------------------------------------------------------------------");
 			
 			for(int posd=0; posd < aluno.getDisciplinas().size();posd++) {
 				
 				Disciplina disc = aluno.getDisciplinas().get(posd);
 				System.out.println("Materia = " +disc.getDisciplina1() + " nota = " + disc.getNota1());
+				System.out.println("-----------------------------------------------------------------------------------");
 			}
 			
-			for (Disciplina disc : aluno.getDisciplinas()) {
-				System.out.println("Materia = " + disc.getDisciplina1() + " nota = " + disc.getNota1());
-				System.out.println();
-				System.out.println("--------------------------------------------------------------------------------");
-			}
+		
 		}
 	
-
 		sc.close();
 	}
 
