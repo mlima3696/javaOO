@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -22,9 +23,9 @@ public class PrimeiraClasseJava {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
-		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
-		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+		// E uma lista  que dentro dela temos uma chave que identifica a sequencia de valores tambem
+		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
+		
 
 		for (int quant = 1; quant <= 5; quant++) {
 
@@ -34,7 +35,7 @@ public class PrimeiraClasseJava {
 			 * String DataN=JOptionPane.showInputDialog("Data de nascimento do Aluno? ");
 			 * String RG=JOptionPane.showInputDialog("N�mero de RG do Aluno? "); String
 			 * CPF=JOptionPane.showInputDialog("N�mero do CPF do Aluno? "); String
-			 * Mae=JOptionPane.showInputDialog("Nome da M�e do Aluno?"); String
+			 * Mae=JOptionPane.showInputDialog("Nome da Mae do Aluno?"); String
 			 * Pai=JOptionPane.showInputDialog("Nome do Pai do Aluno?"); String
 			 * DataM=JOptionPane.showInputDialog("Data da matricula do Aluno? "); String
 			 * NomeE=JOptionPane.showInputDialog("Nome da escola do Aluno?");
@@ -92,31 +93,35 @@ public class PrimeiraClasseJava {
 			alunos.add(aluno1);
 		}
 		
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+		
 		for (Aluno aluno : alunos) {// Separei em listas
 			if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+				maps.get(StatusAluno.APROVADO).add(aluno);
 			}else if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)){
-				alunosRecuperacao.add(aluno);
+				maps.get(StatusAluno.RECUPERACAO).add(aluno);
 			}else {
-				alunosReprovados.add(aluno);
+				maps.get(StatusAluno.REPROVADO).add(aluno);
 			}
 			
 		}
 		
 		System.out.println("----------------------------Lista dos Aprovados------------------------------------------");
-		for (Aluno aluno : alunosAprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
 		
 		System.out.println();
 		System.out.println("----------------------------Lista  de Recuperação---------------------------------------");
-		for (Aluno aluno : alunosRecuperacao) {
+		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
 		
 		System.out.println();
 		System.out.println("-----------------------------Alunos de Reprovados--------------------------------------- ");
-		for (Aluno aluno : alunosReprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println( "Nome do Aluno = " +aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2() + " com média de = " + aluno.getMediaNota());
 		}
 	
