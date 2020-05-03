@@ -5,6 +5,7 @@ public class Secretario extends Pessoa {
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
+	
 	public String getRegistro() {
 		return registro;
 	}
@@ -22,6 +23,12 @@ public class Secretario extends Pessoa {
 	}
 	public void setExperiencia(String experiencia) {
 		this.experiencia = experiencia;
+	}
+	@Override
+	public String toString() {
+		return "Secretario [registro=" + registro + ", nivelCargo=" + nivelCargo + ", experiencia=" + experiencia
+				+ ", nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCPF=" + numeroCPF + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + "]";
 	}
 	
 	
