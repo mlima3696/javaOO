@@ -38,11 +38,14 @@ public class TestandoClassesFilhas {
 		System.out.println(aluno.pessoaMaiorIdade() + " - " + aluno.msgMaiorIdade());
 		System.out.println(diretor.pessoaMaiorIdade());
 		System.out.println(secretario.pessoaMaiorIdade());
+		
+		System.out.println();
+		System.out.println("Salario é = " +aluno.salario());
+		System.out.println("Salario é = " + diretor.salario());
+		System.out.println("Salario é = " + secretario.salario());
+		
+		
+		
 	}
-	
-
-	Aluno aluno2 = new Aluno();
-	
-	
-	
+		
 }
