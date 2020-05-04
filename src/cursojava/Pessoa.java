@@ -1,6 +1,6 @@
 package cursojava;
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	// Heranca - Classe Pai ou classe master ou superclasse - (Atributos comuns a todos os objetos filhos)
 	// Private somente para a classe Pessoa / Protected pode ser usada na classe Pai e Filha (heranca)
