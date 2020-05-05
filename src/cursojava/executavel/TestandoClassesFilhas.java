@@ -21,8 +21,9 @@ public class TestandoClassesFilhas {
 		diretor.setIdade(51);
 		
 		Secretario secretario = new Secretario();
-		secretario.setExperiencia("Adm");
+		secretario.setExperiencia("ADM");
 		secretario.setNumeroCPF("1234");
+		secretario.setNome("Rui");
 		secretario.setIdade(33);
 		
 		System.out.println(aluno);
@@ -40,12 +41,18 @@ public class TestandoClassesFilhas {
 		System.out.println(secretario.pessoaMaiorIdade());
 		
 		System.out.println();
-		System.out.println("Salario é = " +aluno.salario());
-		System.out.println("Salario é = " + diretor.salario());
-		System.out.println("Salario é = " + secretario.salario());
+		System.out.println("Aluno salario e = " +aluno.salario());
+		System.out.println("Diretor salario e = " + diretor.salario());
+		System.out.println("Secretario salario e = " + secretario.salario());
 		
-		
-		
+		teste(aluno);
+		teste(diretor);
+		teste(secretario);
+	}
+	
+	public static void teste(Pessoa pessoa) {
+		System.out.println();
+		System.out.println("Essa pessoa e demais = " + pessoa.getNome() + " e o salario e de  = " + pessoa.salario());
 	}
 		
 }

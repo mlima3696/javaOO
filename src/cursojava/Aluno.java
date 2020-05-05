@@ -211,7 +211,7 @@ public class Aluno extends Pessoa {
 	}
 	
 	public String msgMaiorIdade() {
-		return this.pessoaMaiorIdade() ? "Aluno é maior de de idade " : "Negativo";
+		return this.pessoaMaiorIdade() ? "Aluno e maior de de idade " : "Negativo";
 	}
 
 	@Override
