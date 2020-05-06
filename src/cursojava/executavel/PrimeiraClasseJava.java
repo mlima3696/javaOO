@@ -23,16 +23,12 @@ public class PrimeiraClasseJava {
 		// new Aluno() e uma instancia (criacao do objeto)
 		// aluno1 e uma referencia para o objeto aluno
 		
-		
-
-		String login = JOptionPane.showInputDialog("Qual e  Login? ");
+		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
-
-		PermitirAcesso secretario = new Secretario();// Diretamente com o objeto
 		
+		PermitirAcesso permitirAcesso = new Secretario(login,senha);
 		
-		
-		if (new Secretario().autenticar(login,senha)) { // Se true acessa
+		if (permitirAcesso.autenticar()) { // Se true acessa
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
