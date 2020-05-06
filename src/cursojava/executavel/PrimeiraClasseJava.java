@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.Aluno;
 import cursojava.Disciplina;
+import cursojava.Secretario;
 import cursojava.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
@@ -20,11 +21,17 @@ public class PrimeiraClasseJava {
 
 		// new Aluno() e uma instancia (criacao do objeto)
 		// aluno1 e uma referencia para o objeto aluno
+		
+		
 
 		String login = JOptionPane.showInputDialog("Qual e  Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
 
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+		Secretario secretario = new Secretario();// Diretamente com o objeto
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
+		
+		if (secretario.autenticar()) { // Se true acessa
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -137,6 +144,8 @@ public class PrimeiraClasseJava {
 			}
 
 			sc.close();
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso Negado!");
 		}
 	}
 
