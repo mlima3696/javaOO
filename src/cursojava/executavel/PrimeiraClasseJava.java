@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import curso.java.classesauxiliares.FuncaoAutenticacao;
 import cursojava.Aluno;
+import cursojava.Diretor;
 import cursojava.Disciplina;
-import cursojava.Secretario;
 import cursojava.constantes.StatusAluno;
-import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 
@@ -26,9 +26,9 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
 		
-		PermitirAcesso permitirAcesso = new Secretario(login,senha);
 		
-		if (permitirAcesso.autenticar()) { // Se true acessa
+		// Pode ser tambem o secretario
+		if (new FuncaoAutenticacao(new Diretor(login,senha)).autenticar()) { //Vou travar o contrato para autorizar somente quem realmente tem o contrato legal
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
