@@ -23,6 +23,8 @@ public class PrimeiraClasseJava {
 		// new Aluno() e uma instancia (criacao do objeto)
 		// aluno1 e uma referencia para o objeto aluno
 		
+		try {
+		
 		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
 		
@@ -36,7 +38,7 @@ public class PrimeiraClasseJava {
 			// valores tambem
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-			for (int quant = 1; quant <= 5; quant++) {
+			for (int quant = 1; quant <= 1; quant++) {
 
 				String nome = JOptionPane.showInputDialog("Nome do aluno " + quant + " ? ");
 				String idade = JOptionPane.showInputDialog("Idade do aluno? ");
@@ -99,6 +101,7 @@ public class PrimeiraClasseJava {
 
 				}
 
+				System.out.println("Aqui o ERRO!");
 				alunos.add(aluno1);
 			}
 
@@ -140,9 +143,14 @@ public class PrimeiraClasseJava {
 						+ " com média de = " + aluno.getMediaNota());
 			}
 
-			sc.close();
-		}else {
-			JOptionPane.showMessageDialog(null, "Acesso Negado!");
+				sc.close();
+			} else {
+				JOptionPane.showMessageDialog(null, "Acesso Negado!");
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();// Imprime erro no console Java 
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
 		}
 	}
 
