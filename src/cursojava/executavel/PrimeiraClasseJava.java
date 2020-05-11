@@ -146,11 +146,28 @@ public class PrimeiraClasseJava {
 				sc.close();
 			} else {
 				JOptionPane.showMessageDialog(null, "Acesso Negado!");
+				
+
 			}
 		
 		} catch (Exception e) {
-			e.printStackTrace();// Imprime erro no console Java 
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+			
+			StringBuilder saida = new StringBuilder();
+			
+			// Imprime erro no console Java 
+			e.printStackTrace();
+			
+			//Mensagem do erro ou causa
+			System.out.println("Mensagem: " + e.getMessage());
+			
+			for(int pos=0; pos<e.getStackTrace().length;pos++) {
+				saida.append("\n Classe de erro: " + e.getStackTrace()[pos].getClassName());//Classe de Erro
+				saida.append("\n Metodo de erro: " + e.getStackTrace()[pos].getMethodName());//Metodo do Erro
+				saida.append("\n Linha de erro: " + e.getStackTrace()[pos].getLineNumber());// Linha do Erro
+				saida.append("\n Class : " + e.getClass().getName());
+			}
+			
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas: " + saida.toString());
 		}
 	}
 
