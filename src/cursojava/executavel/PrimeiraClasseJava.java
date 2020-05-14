@@ -1,5 +1,6 @@
 package cursojava.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ public class PrimeiraClasseJava {
 		// aluno1 e uma referencia para o objeto aluno
 		
 		try {
+		new File("ArquivoX.txt");
 		
 		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
@@ -101,7 +103,6 @@ public class PrimeiraClasseJava {
 
 				}
 
-				System.out.println("Aqui o ERRO!");
 				alunos.add(aluno1);
 			}
 
@@ -150,7 +151,7 @@ public class PrimeiraClasseJava {
 
 			}
 		
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			
 			StringBuilder saida = new StringBuilder();
 			
@@ -167,7 +168,11 @@ public class PrimeiraClasseJava {
 				saida.append("\n Class : " + e.getClass().getName());
 			}
 			
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas: " + saida.toString());
+			JOptionPane.showMessageDialog(null, "Erro de conversao de numero: " + saida.toString());
+		}catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception" + e.getClass());
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
