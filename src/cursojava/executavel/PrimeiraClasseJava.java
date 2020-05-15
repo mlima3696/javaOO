@@ -25,7 +25,8 @@ public class PrimeiraClasseJava {
 		// aluno1 e uma referencia para o objeto aluno
 		
 		try {
-		new File("ArquivoX.txt");
+		//File fil = new File("c://ArquivoX.txt");
+		//Scanner scanner = new Scanner(fil);
 		
 		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
@@ -144,7 +145,7 @@ public class PrimeiraClasseJava {
 						+ " com média de = " + aluno.getMediaNota());
 			}
 
-				sc.close();
+				 
 			} else {
 				JOptionPane.showMessageDialog(null, "Acesso Negado!");
 				
@@ -169,10 +170,18 @@ public class PrimeiraClasseJava {
 			}
 			
 			JOptionPane.showMessageDialog(null, "Erro de conversao de numero: " + saida.toString());
+			
 		}catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception" + e.getClass());
-		}catch (Exception e) {
+		}
+		
+		catch (Exception e) {// Captura todas as excecoes que nao prevemos
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperdo!!! " + e.getClass().getName());
+		} 
+		
+		finally {
+			JOptionPane.showMessageDialog(null, "Obrigado por Aprender Java");
 		}
 	}
 
