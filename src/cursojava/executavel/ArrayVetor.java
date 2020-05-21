@@ -14,8 +14,10 @@ public class ArrayVetor {
 		 notas[2]=4;
 		 notas[3]=9;
 		 
-		
-		System.out.println(notas);
+		for(int pos=0;pos<4;pos++ ) {
+			
+			System.out.println("Nota " + (pos + 1) + " é = " + notas[pos]);
+		}
 		
 	}
 }
