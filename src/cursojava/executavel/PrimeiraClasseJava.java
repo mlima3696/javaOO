@@ -28,7 +28,7 @@ public class PrimeiraClasseJava {
 		
 		try {
 			
-		lerArquivo();
+		//lerArquivo();
 		
 		String login = JOptionPane.showInputDialog("Qual e o Login? ");
 		String senha = JOptionPane.showInputDialog("Qual e a Senha? ");
@@ -154,7 +154,7 @@ public class PrimeiraClasseJava {
 
 			}
 		
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			
 			StringBuilder saida = new StringBuilder();
 			
@@ -173,14 +173,7 @@ public class PrimeiraClasseJava {
 			
 			JOptionPane.showMessageDialog(null, "Erro de conversao de numero: " + saida.toString());
 			
-		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception" + e.getClass());
 		}
-		
-		catch (FileNotFoundException e) {// Captura todas as excecoes que nao prevemos
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro da excecao customizada!!! " + e.getClass().getName());
-		} 
 		
 		finally {// Sempre e executado ocorrendo erros ou nao. Porque
 			// Finally sempre é usado quando se precisa executar um processo dando erro ou nao
@@ -189,9 +182,9 @@ public class PrimeiraClasseJava {
 
 	}
 
-	public static void lerArquivo() throws FileNotFoundException {
+	/*public static void lerArquivo() throws FileNotFoundException {
 		
 		File fil = new File("c://ArquivoX.txt");
 		Scanner scanner = new Scanner(fil);
-		}
+		}*/
 	}
