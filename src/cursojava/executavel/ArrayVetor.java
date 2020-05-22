@@ -11,20 +11,22 @@ public class ArrayVetor {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		// Array pode ser de todos os tipo de dados e objetos tambem
 		
-		//Array sempre deve ter a quantidade de posicoes definidas
-		String posicoes = JOptionPane.showInputDialog("Quantas posicoes o Array deve ter: ");
-		double notas[] = new double[Integer.parseInt(posicoes)];
+		//double[] valores = {9.5,3.3,6.3}; // pos 0 1 2
 		
-		for(int pos=0;pos<notas.length;pos++) {//Lenght enquanto a posicao for menor que o Array 
-			String valor = JOptionPane.showInputDialog("Qual o valor da posicao = " +pos);
-			notas[pos]= Double.valueOf(valor);
-		}
-		 
-		for(int pos=0;pos<notas.length;pos++ ) {
+		//String[]valores = new String[4];
+		/*valores[0] = "lima";
+		valores[1] = "qwe";
+		valores[2] = "rty";
+		valores[3] = "uio";*/
+		
+		int[] inteiros = new int[10];
+		float[] floats = new float[10];
+		
+		String[]valores = {"lima","qwe","rty","uio"};
+        for(int pos=0;pos<valores.length;pos++ ) {
 			
-			System.out.println("Nota " + (pos + 1) + " é = " + notas[pos]);
+			System.out.println("Valor na posicao " + pos  + " é = " + valores[pos]);
 		}
 		
 	}
