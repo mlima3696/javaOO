@@ -3,7 +3,8 @@ package cursojava.executavel;
 import java.util.Locale;
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
+import cursojava.Aluno;
+import cursojava.Disciplina;
 
 public class ArrayVetor {
 
@@ -11,23 +12,24 @@ public class ArrayVetor {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		//Criacao dos alunos
+		Aluno aluno = new Aluno();
+		aluno.setNome("Lima, Gomes");
+		aluno.setNomeEscola("Null");
 		
-		//double[] valores = {9.5,3.3,6.3}; // pos 0 1 2
+		// Criacao das disciplinas
+		Disciplina disciplina = new Disciplina();
+		disciplina.setDisciplina("Docker");
 		
-		//String[]valores = new String[4];
-		/*valores[0] = "lima";
-		valores[1] = "qwe";
-		valores[2] = "rty";
-		valores[3] = "uio";*/
+		double[] notas = {2,3.4,4,4,4};
+		double[] notasLogica = {5.3,6.5,7.8,9};
 		
-		int[] inteiros = new int[10];
-		float[] floats = new float[10];
+		disciplina.setNota(notas);
 		
-		String[]valores = {"lima","qwe","rty","uio"};
-        for(int pos=0;pos<valores.length;pos++ ) {
-			
-			System.out.println("Valor na posicao " + pos  + " é = " + valores[pos]);
-		}
+		aluno.getDisciplinas().add(disciplina);// Adicionando uma disciplina para um aluno
 		
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Zabbix");
+		disciplina2.setNota(notasLogica);
 	}
 }

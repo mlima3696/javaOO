@@ -1,39 +1,46 @@
 package cursojava;
 
+import java.util.Arrays;
+
 // Essa classe Disciplina servira para todos os objetos e inst�ncias de notas e materiais
 public class Disciplina {
 
-	private double nota1;
-	private String disciplina1;
+	
+	// Cada disciplina tera 4 notas durante o ano inteiro
+	private double[]nota = new double[4];
+	private String disciplina;
 
 
-
-	public double getNota1() {
-		return nota1;
+	
+	public double[] getNota() {
+		return nota;
 	}
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
+	public void setNota(double[] nota) {
+		this.nota = nota;
 	}
-	public String getDisciplina1() {
-		return disciplina1;
+	public String getDisciplina() {
+		return disciplina;
 	}
-	public void setDisciplina1(String disciplina1) {
-		this.disciplina1 = disciplina1;
+	public void setDisciplina(String disciplina1) {
+		this.disciplina = disciplina1;
 	}
-
+	
+	public double getMediaNotas() {
+		double somaTotal=0;
+		for(int pos=0;pos<nota.length;pos++) {
+			somaTotal += nota[pos];
+		}
+		return somaTotal/4;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((disciplina1 == null) ? 0 : disciplina1.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(nota1);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((disciplina == null) ? 0 : disciplina.hashCode());
+		result = prime * result + Arrays.hashCode(nota);
 		return result;
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -43,21 +50,18 @@ public class Disciplina {
 		if (getClass() != obj.getClass())
 			return false;
 		Disciplina other = (Disciplina) obj;
-		if (disciplina1 == null) {
-			if (other.disciplina1 != null)
+		if (disciplina == null) {
+			if (other.disciplina != null)
 				return false;
-		} else if (!disciplina1.equals(other.disciplina1))
+		} else if (!disciplina.equals(other.disciplina))
 			return false;
-		if (Double.doubleToLongBits(nota1) != Double.doubleToLongBits(other.nota1))
+		if (!Arrays.equals(nota, other.nota))
 			return false;
 		return true;
 	}
-
-
-
 	@Override
 	public String toString() {
-		return "Disciplina [nota1=" + nota1 + ", disciplina1=" + disciplina1 + "]";
+		return "Disciplina [nota1=" + nota + ", disciplina1=" + disciplina + "]";
 	}
 
 
