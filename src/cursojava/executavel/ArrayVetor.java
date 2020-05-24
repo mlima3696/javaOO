@@ -43,9 +43,17 @@ public class ArrayVetor {
 			System.out.println("Disciplina: " + disc.getDisciplina());
 			System.out.println("As notas da disciplina são: ");
 			
+			double notaMax=0;
 			for(int pos =0;pos<disc.getNota().length;pos++) {
 				System.out.println("Nota " + pos + " é = " +disc.getNota()[pos]);
-			} 
+				if(pos==0) {
+					notaMax=disc.getNota()[pos];
+				}else {
+					if(disc.getNota()[pos] > notaMax) {
+						notaMax=disc.getNota()[pos];
+					}
+				}
+			} System.out.println("Maior da disciplina = " + disc.getDisciplina() + " e de valor: " + notaMax);
 		}
 	}
 }
