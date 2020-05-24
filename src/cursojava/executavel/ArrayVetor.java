@@ -21,7 +21,7 @@ public class ArrayVetor {
 		Disciplina disciplina = new Disciplina();
 		disciplina.setDisciplina("Docker");
 		
-		double[] notas = {2,3.4,4,4,4};
+		double[] notas = {2,3.4,4,8,6};
 		double[] notasLogica = {5.3,6.5,7.8,9};
 		
 		disciplina.setNota(notas);
@@ -34,26 +34,32 @@ public class ArrayVetor {
 		
 		aluno.getDisciplinas().add(disciplina2);
 		
-		System.out.println("Nome do Aluno = " + aluno.getNome() + " Inscrito no curso: " +aluno.getNomeEscola());
-		System.out.println("-------------------------Disciplinas do Aluno---------------------------------");
 		
-		for(Disciplina disc : aluno.getDisciplinas()) {
+		//---------------------------------------------------------------------------------
+		
+		Aluno[]arrayAlunos = new Aluno[1];
+		
+		arrayAlunos[0]=aluno;
+		for(int pos=0;pos<arrayAlunos.length;pos++) {
+			System.out.println("Nome do Aluno é: " + arrayAlunos[pos].getNome());
 			
-			System.out.println();
-			System.out.println("Disciplina: " + disc.getDisciplina());
-			System.out.println("As notas da disciplina são: ");
-			
-			double notaMax=0;
-			for(int pos =0;pos<disc.getNota().length;pos++) {
-				System.out.println("Nota " + pos + " é = " +disc.getNota()[pos]);
-				if(pos==0) {
-					notaMax=disc.getNota()[pos];
-				}else {
-					if(disc.getNota()[pos] > notaMax) {
-						notaMax=disc.getNota()[pos];
+			for(Disciplina disc : arrayAlunos[pos].getDisciplinas()) {
+				System.out.println();
+				System.out.println("Noma da Disciplina: " +disc.getDisciplina());
+				double notaMax=0;
+				for(int posnota=0;posnota<disc.getNota().length;posnota++) {
+					System.out.println("A nota numero: " +posnota+ " é igual = " +disc.getNota()[posnota]);
+					if(pos==0) {
+						notaMax=disc.getNota()[posnota];
+					}else {
+						if(notaMax <disc.getNota()[posnota]) {
+							notaMax = disc.getNota()[posnota];
+						}
 					}
 				}
-			} System.out.println("Maior da disciplina = " + disc.getDisciplina() + " e de valor: " + notaMax);
+				System.out.println("A nota maxima é: " + notaMax);
+			}
 		}
 	}
+
 }
