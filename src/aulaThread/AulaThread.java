@@ -1,4 +1,4 @@
-package cursojava.thread;
+package aulaThread;
 
 import javax.swing.JOptionPane;
 
