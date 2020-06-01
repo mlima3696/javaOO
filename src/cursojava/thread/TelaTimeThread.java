@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -25,6 +29,46 @@ public class TelaTimeThread  extends JDialog{
 	private JButton jButton = new JButton("Start");
 	private JButton jButton2 = new JButton("Stop");
 	
+	
+	private Runnable thread1 = new Runnable() {
+		
+		@Override
+		public void run() {
+
+			while(true){//Fica sempre rodando
+				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	};
+	
+	
+	private Runnable thread2 = new Runnable() {
+		
+		@Override
+		public void run() {
+
+			while(true) {
+				mostraTempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	};
+	
+	private Thread thread1time;
+	
+	private Thread thread2time;
 	
 	public TelaTimeThread() {//Executa o que tiver dentro no momento da abertura ou execucao
 		
@@ -67,6 +111,47 @@ public class TelaTimeThread  extends JDialog{
 		jButton2.setPreferredSize(new Dimension(92, 25));
 		gridBagConstraints.gridx++;
 		jPanel.add(jButton2,gridBagConstraints);
+		
+	
+		
+		jButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {//Executa o click no botao
+				
+				thread1time=new Thread(thread1);
+				thread1time.start();
+				
+			}
+		});
+		
+		jButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {//Executa o click no botao
+				
+				thread1time=new Thread(thread2);
+				thread1time.start();
+				
+			}
+		});
+		
+		jButton2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				thread1time.stop();;
+			}
+		});
+		jButton2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				thread1time.stop();;
+			}
+		});
 		
 		add(jPanel,BorderLayout.WEST);
 		//Sempre sera o ultimo a ser executado
