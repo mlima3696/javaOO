@@ -15,9 +15,15 @@ public class ImplementacaoFilaThread extends Thread {
 	
 	@Override
 	public void run() {
-		Iterator iteracao = pilha_fila.iterator();
 		
-		synchronized (iteracao) {//Bloquear o acesso a essa lista por outros processos
+		System.out.println("Fila rodando");
+		
+		
+		while(true){
+		
+		synchronized (pilha_fila) {//Bloquear o acesso a essa lista por outros processos
+			
+			Iterator iteracao = pilha_fila.iterator();
 			
 			while(iteracao.hasNext()) {//Enquanto conter dados na lista ira processar
 				
@@ -46,14 +52,14 @@ public class ImplementacaoFilaThread extends Thread {
 			
 		}
 		
-	
-		
 		try {
-			Thread.sleep(1000);//Processou toda a lista da um tempo pra limpeza de memoria
+			Thread.sleep(1000);// Processou toda a lista da um tempo pra limpeza de memoria
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
+}
+
 }
